@@ -94,4 +94,4 @@ Route::post('vali_reg',[UserController::class,'login_form_vali']);
 
 
 Route::get('/su',[UserController::class,'check']);
-Route::post('/dash',[UserController::class,'dashboard']);
+Route::get('/dash',[UserController::class,'dashboard']);

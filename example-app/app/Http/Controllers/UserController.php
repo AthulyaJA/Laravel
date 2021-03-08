@@ -63,7 +63,7 @@ function login_form_vali(Request $req)
       $m=new Register;
       $m->username=$req->name;
      $m->email=$req->email;
-     $m->password=($req->pass);
+     $m->password=Hash::make($req->pass);
      $query=$m->save();
      if($query)
         {
@@ -75,31 +75,38 @@ function login_form_vali(Request $req)
 
 }
 
-function dashboard()
+function dashboard(Request $req)
 {
-    return view('dashboard');
+    $data=$req->input();
+$req->session()->put('user',$data['email']);
+$req->session()->put('users',$data['password']);
+return redirect('logform');
+    
 }
-function check()
+function check(Request $req)
 {
     $req->validate([
         'email'=>'required',
         'pass'=>'required',
     ]);
     $userinfo=Register::where('email','=',$req->email)->first();
+    
     if(!$userinfo)
     {
-        return back()->with('fail','we cant');
+        return back()->with('fail','we can not access the user');
     }
     else {
         if($req->pass=$req->pass)
         {
             $req->Session()->put('loguser',$userinfo->id);
-            return redirect('dashboard');
+            return redirect('dash');
         }
         else {
             return back()->with('fail','invalid user');
         }
              }
     }
+
+    
 }
 

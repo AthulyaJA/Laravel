@@ -29,7 +29,7 @@
 </head>
 
 <body class="top">
-    <h1>Register Form</h1>
+    <h1 class=" text-+white">Register Form</h1>
 <form action="/vali_reg" method="post">
 @csrf
 <div clas="container">

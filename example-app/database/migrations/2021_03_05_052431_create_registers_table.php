@@ -14,12 +14,17 @@ class CreateRegistersTable extends Migration
     public function up()
     {
         Schema::create('registers', function (Blueprint $table) {
+
             $table->id();
             $table->string('username');
-            $table->integer('password');
+           $table->interger('password');
             $table->string('email');
             $table->timestamps();
         });
+        Schema::table('registers', function ($table) {
+            $table->string('password',10)->change();
+        });
+        
     }
 
     /**
@@ -30,5 +35,6 @@ class CreateRegistersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('registers');
+        
     }
 }

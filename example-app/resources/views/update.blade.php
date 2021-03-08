@@ -22,7 +22,7 @@ input
                 @csrf
                 
                 <input type="hidden" name="id" value="{{$user->id}}">
-                        Name:<input type="text" name="name" value=" {{$user->members_name}}">
+                    Name:<input type="text" name="name" value=" {{$user->members_name}}">
                         <br>
                     Email:<input type="text" name="email" value="{{$user->email }}">
                    <br>

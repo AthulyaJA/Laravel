@@ -35,7 +35,7 @@
                 </div>
 <div class="form-group">
 <label for="example">Email</label>
-<input type="text" name="email" placeholder="email" class="form-control  bg-primary">
+<input type="text" name="email" placeholder="email" class="form-control">
 <span class="error">
 @error('name'){{$message}} @enderror</span><br>
 <label for="example">Password</label>
@@ -44,7 +44,7 @@
 @error('name'){{$message}} @enderror</span>
 <br>
 
-<input type="submit" value="login">
+<input type="submit"  name="login"value="login">
 
 <a href="regform" class="bg-info">Register</a>
 </div>
